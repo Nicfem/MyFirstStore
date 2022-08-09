@@ -1,0 +1,59 @@
+@import './../../../style.scss';
+
+.modalBasket {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: $darkBlue, $alpha: 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+        animation: fadeIn .2s;
+        animation-duration: 0.2s;
+        animation-timing-function: ease-in-out;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+        animation-play-state: running;
+        animation-name: fadeIn;
+    }
+    &__content {
+        border-radius: 8px;
+        max-width: 960px;
+        height: auto;
+        background-color: #fff;
+        &.active {
+            animation-name: zoomIn;
+            animation-duration: 0.2s;
+            animation-fill-mode: forwards;
+        }
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

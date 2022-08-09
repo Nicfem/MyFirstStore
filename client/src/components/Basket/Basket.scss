@@ -1,0 +1,321 @@
+.basket-pg {
+    &__content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__title {
+        margin: 20px 0 50px 0;
+    }
+}
+
+.decrement {
+    font-size: 26px;
+}
+
+.increment {
+    font-size: 26px;
+}
+
+.basket-form {
+    width: 860px;
+    padding: 30px;
+    border: 1px solid #C8CACB;
+    border-radius: 8px;
+
+    &__select {
+        appearance: none;
+        background-color: transparent;
+        border: none;
+        padding-left: 20px;
+        margin: 0;
+        width: 310px;
+        height: 48px;
+        border: 1px solid #EAEAF0;
+        border-radius: 5px;
+        font-family: inherit;
+        font-size: inherit;
+        cursor: inherit;
+        line-height: inherit;
+        outline: none;
+    }
+
+    &:not(:first-child){
+        margin-top: 30px;
+    }
+
+    &__title {
+        margin-bottom: 30px;
+    }
+
+    &__good-cart {
+        height: 80px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__block-img-name {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    &__price {
+        width: 100px;
+    }
+
+    &__button-basket {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.block-img-name {
+    &__name {
+        width: 280px;
+    }
+
+    &__img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+.quantity-block {
+
+    width: 100px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+
+    &__quantity {
+
+        width: 48px;
+        height: 48px;
+        border: 1px solid #C8CACB;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+}
+
+
+
+
+.basket-fomr-list>p {
+    height: 1px;
+    background-color: #C8CACB;
+}
+
+
+
+.basket-fomr-list:last-child>p { 
+    display: none;
+}
+
+.basket-fomr-list:last-child>div { 
+    margin-bottom: 0;
+}
+
+// .basket-fomr-list {
+//     margin: 0;
+// }
+
+
+
+
+
+.total-price {
+    width: 420px;
+    height: 400px;
+    padding: 30px;
+    margin-left: 20px;
+    background: #EDF2F6;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        margin-bottom: 17px;
+    }
+
+    &>div {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    &>div>p:first-child {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 120%;
+        color: #838688;
+    }
+
+    &>div>p:last-child {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 120%;
+        color: black;
+    }
+
+    &__border {
+        height: 1px;
+        background-color: #838688;
+    }
+
+    &>div:nth-child(3) {
+        margin-bottom: 30px;
+    }
+
+    &>div:nth-child(5) {
+        margin-top: 30px;
+        align-items: flex-end;
+    }
+
+    &__confirmOrder {
+        height: 48px;
+        background-color: #4878A6;
+        border-radius: 4px;
+        color: white;
+    }
+}
+
+.payment-form {
+    display: flex;
+    flex-direction: column;
+
+    &__location {
+        display: flex;
+        border-bottom: 1px solid #C8CACB;
+    }
+
+    &__label {
+        display: flex;
+        flex-direction: column;
+
+        &__title {
+            height: 20px;
+        }
+    }
+
+    &__input {
+        border: 1px solid #EAEAF0;
+        margin-top: 8px;
+        border-radius: 5px;
+        height: 48px;
+        width: 310px;
+        padding: 16px 16px 20px;
+    }
+
+    // &__input-block-redio-active {
+    //     margin-top: 28px;
+    //     width: 310px;
+    //     height: 48px;
+    //     margin-left: 30px;
+    //     display: flex;
+    //     align-items: center;
+    //     padding: 10px 20px;
+    //     border: 2px solid #4878A6;
+    //     border-radius: 5px;
+    // }
+
+    // &__input-block-redio-active:not(:first-child) {
+    //     margin-top: 20px;
+    //     margin-bottom: 30px;
+    // }
+
+    &__input-block-redio {
+        margin-top: 28px;
+        width: 310px;
+        height: 48px;
+        color: #838688;
+        margin-left: 30px;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        border: 2px solid #EAEAF0;
+        border-radius: 5px;
+        &.active {
+            border: 2px solid #4878A6;
+            color: #4878A6;
+        }
+    }
+
+    &__input-block-redio:not(:first-child) {
+        margin-top: 20px;
+        margin-bottom: 30px;      
+    }
+}
+
+/* для элемента input c type="radio" */
+.custom-radio {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+/* для элемента label связанного с .custom-radio */
+.custom-radio+label {
+    display: inline-flex;
+    align-items: center;
+    // user-select: none;
+}
+
+/* создание в label псевдоэлемента  before со следующими стилями */
+.custom-radio+label::before {
+    content: '';
+    display: inline-block;
+    min-width: 20px;
+    min-height: 20px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 2px solid #EAEAF0;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-position: center center;
+    background-size: 100% 100%;
+}
+
+/* стили при наведении курсора на радио */
+.custom-radio:not(:disabled):not(:checked)+label:hover::before {
+    border-color: #b3d7ff;
+}
+
+/* стили для активной радиокнопки (при нажатии на неё) */
+.custom-radio:not(:disabled):active+label::before {
+    background-color: #b3d7ff;
+    border-color: #b3d7ff;
+}
+
+/* стили для радиокнопки, находящейся в фокусе */
+.custom-radio:focus+label::before {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* стили для радиокнопки, находящейся в фокусе и не находящейся в состоянии checked */
+.custom-radio:focus:not(:checked)+label::before {
+    border-color: #80bdff;
+}
+
+/* стили для радиокнопки, находящейся в состоянии checked */
+
+$blue2: #80bdff;
+
+.custom-radio:checked+label::before {
+    border-color: #4878A6;
+    background-image: url("../../img/TEST.svg");
+}
+
+/* стили для радиокнопки, находящейся в состоянии disabled */
+.custom-radio:disabled+label::before {
+    background-color: #e9ecef;
+}

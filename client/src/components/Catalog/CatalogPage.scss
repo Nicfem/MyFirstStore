@@ -1,0 +1,232 @@
+@use '../../scss/base/goodCart';
+@import '../../style.scss';
+
+
+.catalogGood {
+   @include goodCart.cardGood(33%);
+   @include goodCart.cardGoodMediaOption(50%, 50%);
+}
+
+.CatalogPage {
+
+    &__Navigate {
+        display: flex;
+        align-items: center;
+        margin-top: 40px;
+        &>p {
+            margin-left: 15px;
+        }
+    }
+    
+    &__title {
+        margin-top: 30px;
+        margin-bottom: 40px;
+        font-size: 36px;
+        font-weight: bold;
+    }
+}
+
+.NavLink-Catalog {
+    display: flex;
+    align-items: center;
+    &>p {
+        margin-right: 15px;
+
+        &:hover {
+            color: $blue;
+        }
+    }
+    
+    &:not(:first-child) {
+        &>p {
+            margin-left: 15px;
+        }
+    }
+}
+
+.form-search {
+    width: 310px;
+    // margin-top: 40px;
+    margin-right: 20px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+
+    &__span-svg {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    &__svg-arrou {
+        fill: black;
+        transform: rotate(0deg);
+        transition: all .5s ease;
+        &-active {
+            fill: black;
+            transition: all .5s ease;
+            transform: rotate(180deg);
+        }
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 48px;
+        align-items: center;
+        padding: 10px 10px 10px 20px;
+        background-color: #EDF2F6;
+        border-radius: 4px;
+        gap: 10px;  
+        margin-top: 20px;
+    }
+
+
+
+    &__filter {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        height: 48px;
+        background-color: $blue;
+        color: white;
+        border-radius: 4px;
+
+        &:active {
+            background-color: rgba($color: $blue, $alpha: 0.9);
+        }
+
+        &:after {
+            background: #fff;
+            position: absolute;
+            content: "";
+            height: 155px;
+            left: -75px;
+            opacity: .2;
+            position: absolute;
+            top: -50px;
+            transform: rotate(35deg);
+            transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+            width: 50px;
+            // z-index: -10;
+          }
+        
+        &:hover {
+            &::after {
+                left: 120%;
+                transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+            }
+        }
+    }
+
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        &-active {
+            &>li {
+                display: none;
+            }
+        }
+    }
+
+    &__menu:first-child {
+        margin-top: 20px;
+    }
+
+    &__title {
+        // margin-top: 10px;
+        line-height: 24px;
+        font-weight: bold;
+        cursor: pointer;
+        &:hover {
+            color: $blue;
+            text-decoration: underline;
+        }
+        // width: 100%;
+        // height: 48px;
+        // background-color: #EDF2F6;
+
+        // display: flex;
+        // flex-direction: row;
+        // justify-content: space-between;
+        // align-items: center;
+        // padding: 10px 10px 10px 20px;
+        // gap: 10px;
+        // border-radius: 4px;
+    }
+
+    &__checkbox {
+        margin-left: 4px;
+    }
+}
+
+.cardCatalog {
+    width: 245px;
+}
+
+
+// checkbox
+
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.custom-checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    // user-select: none;
+}
+
+.custom-checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80% 80%;
+}
+
+.custom-checkbox:checked+label::before {
+    background-color: $blue;
+    // border-color: #0b76ef;
+    // background-color: #0b76ef;
+    // background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+    background-image: url(../../img/Vector322.svg);
+    
+}
+
+.custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
+    border-color: #b3d7ff;
+  }
+  /* стили для активного состояния чекбокса (при нажатии на него) */
+  .custom-checkbox:not(:disabled):active+label::before {
+    background-color: #b3d7ff;
+    border-color: #b3d7ff;
+  }
+  /* стили для чекбокса, находящегося в фокусе */
+  .custom-checkbox:focus+label::before {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  /* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+  .custom-checkbox:focus:not(:checked)+label::before {
+    border-color: #80bdff;
+  }
+  /* стили для чекбокса, находящегося в состоянии disabled */
+  .custom-checkbox:disabled+label::before {
+    background-color: #e9ecef;
+  }
+
+//checkbox

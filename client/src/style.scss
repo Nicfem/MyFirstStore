@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&display=swap');
+
+//fonts
+$fontFamily: 'Exo 2';
+
+$fontSize: (16);
+
+//colors
+$mainColor: 'black';
+$darkBlue: #2A5275;
+$blue: #4878A6;
+
+
+// width
+$minWidth: 320;
+
+$maxWidth: 1920;
+
+$maxWidthContainer: 1340px;
+
+$containerPadding: 30;
+
+// adaptive
+$responsiveType: 1;
+
+// brayke-point
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+$pc: em($containerWidth); // ПК
+$tablet: em(991.98); // Планшеты 
+// $mobile: em(767.98); // Телефоны L
+$mobile: 640px;
+$mobileSmall: em(479.98); // Телефоны S
+
+.container {
+    max-width: $maxWidthContainer;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+
+@mixin adaptiveValue($propretry, $minSize, $maxSize) {
+    $addSize: $maxSize - $minSize;
+    #{$propretry}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth - $minWidth}))
+    // #{$style}: calc(#{$min}px + (#{$max} - #{#{$min}}) * ((100vw - 620px) / 1300))
+    // #{$style}: calc(#{$min}px + (#{$max} - #{#{$min}}) * ((100vw - 320px) / (1920 - 320)))
+}   
