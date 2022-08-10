@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch} from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import { setUser } from "../../Redux/Slice/userSlice";
-// import { setAuth } from "../../Redux/Slice/AuthSlice";
 import { useLoginMutation, useRegistrationMutation } from "../../Redux/User/authAPI";
 import './AuthPage.scss'
 
@@ -64,7 +63,6 @@ export const AuthPageCard = ({setActive}) => {
                 setError(res.error.data.message)
             } else {
                 console.log(res)
-                // dispath(setAuth(res.data))
                 dispath(setUser(res.data))
                 setError('')
             } 
