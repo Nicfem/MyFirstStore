@@ -7,11 +7,11 @@ import { Good } from '../../MainPage/itemGood/Good'
 import './Favorites.scss'
 
 export const Favorites = () => {
+
     const User = useSelector(selectUser)
-    // const {data : goods} = useGetAllById1Query(User?.FavoritesGoods.map(x => x._id).join(','), {skip : User ? false : true})
-    
     const {data : goods} = useGetAllById1Query(User?.favoritesGoods, {skip : User ? false : true})
     const [Goods, setGoods] = useState([])
+    
     useEffect(() => {
         if(!User?.favoritesGoods.length) setGoods([])
         if(goods) setGoods(goods)
@@ -20,8 +20,6 @@ export const Favorites = () => {
     return (
         <>
             <div className='Favorites'>
-                {/* <Goods goods={goods ? goods : null}/> */}
-                
                 <div className='goods'>
                     {goods?.map(x => 
                         <Good good={x} className={'catalogGood'}/>    
