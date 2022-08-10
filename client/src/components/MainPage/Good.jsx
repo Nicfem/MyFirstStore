@@ -3,19 +3,20 @@ import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { addUserBasket, delUserBasket } from "../../Redux/Slice/userSlice"
-import { useAddFavoriteGoodMutation, useAddToBasketMutation, useDelBasketMutation, useDelFavoriteGoodMutation, useGetUserQuery } from "../../Redux/User/userAPI"
+import { useAddFavoriteGoodMutation, useAddToBasketMutation, useDelBasketMutation, useDelFavoriteGoodMutation } from "../../Redux/User/userAPI"
 import { selectUser } from "../../selectors/selectors"
-import { BasketIcon } from "../icons/Basket"
-import { InBasket } from "../icons/InBasket"
 import { Loader } from "../Loader"
+
 
 const serv = 'http://localhost:5000/'
 
 export const Good = ({good, className}) => {
 
+    console.log('render')
+
     const dispatch = useDispatch()
 
-    const { basket, favoritesGoods} = useSelector(selectUser)
+    const { basket, favoritesGoods } = useSelector(selectUser)
     
     const isAuth = useSelector(state => state.user.isAuth)  
 
@@ -30,6 +31,7 @@ export const Good = ({good, className}) => {
     
 
     useEffect(() => {
+        
         if(favoritesGoods?.includes(good._id) != isFav && favoritesGoods?.includes(good._id) !=  undefined) {
             setIsFav(favoritesGoods?.includes(good._id))
         }
@@ -50,38 +52,10 @@ export const Good = ({good, className}) => {
                     <Link className={className + '__picture'} to={`/product/${good._id}`}>
                         <img src={serv + good.img}/>
                     </Link>
-                    {/* <p className="cardMain__Type">{good.type}</p> */}
                     <Link className={className + '__title'} to={`/product/${good._id}`}>
                             {good.device}
                     </Link>
                     <p className={className + '__pryce'}>{`${Pryce(good.price)}`}<span> ₴</span></p>
-                    {/* {isAuth ? 
-                        <div>
-                            {
-                                isFav ?
-                                <button disabled={LoadingUnLike} className="cardMain__butUnLike" onClick={() => {
-                                    NoLike({goodsId: good._id})
-                                    
-                                }}></button>
-                                :
-                                <button disabled={isLoading} className="cardMain__butLike" onClick={() => {
-                                    Like({goodsId: good._id})
-                                }}></button>
-                            }
-                            {
-                                inBas ?
-                                <button disabled={LoadingDelBasket} onClick={() => delBasket({goodsId: good._id})}><InBasket/></button>
-                                :
-                                <button disabled={LoadingAddBasket} onClick={() => addBasket({goodsId: good._id})}><BasketIcon/></button>
-                            }
-                        </div>
-                        :
-
-                        basket.includes(good._id) ?
-                        <button onClick={() => dispatch(delUserBasket(good._id))} className="cardMain__butBy-active">Товар в карзине</button>
-                        :
-                        <button onClick={() => dispatch(addUserBasket(good._id))} className="cardMain__butBy">Добавить в карзину</button> 
-                    } */}
                 </div>
                     {isAuth ? 
                         <div className={className + '__actions'}>

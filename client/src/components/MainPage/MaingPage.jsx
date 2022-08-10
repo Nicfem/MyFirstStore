@@ -2,14 +2,11 @@ import React, { useEffect, useState } from "react";
 import './MainPage.scss'
 import { useGetDiviceByIdQuery } from "../../Redux/Device/deviceAPI";
 import {  useGetTypesQuery } from "../../Redux/Type/typeAPI";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import img1 from '../../img/content.png'
 import { Good } from "./Good";
 
-
-
 const MainPage = () => {
-    const [option, setEl] = useState([])
     const [limit, setLimit] = useState(15)
     const [fetching, setFetching] = useState(false)
     
@@ -40,8 +37,6 @@ const MainPage = () => {
             setFetching(true)
         } 
     }
-
-    const serv = 'http://localhost:5000/'
     // const handl = (body) => {
         
     //     if (body.checked === true) {
@@ -53,11 +48,6 @@ const MainPage = () => {
     //     }
     //     console.log(option)
     // }
-    
-    const setElm = (value) => {
-        setEl(value)
-        console.log(option)   
-    }
 
     console.log('renderMainPage')
     
@@ -68,7 +58,7 @@ const MainPage = () => {
                     <ul className="catalog-action__list list">
                         
                         {type && type.map(x => 
-                            <NavLink to={'/Catalog/' + x.type}>
+                            <Link to={'/Catalog/' + x.type}>
                             <li 
                             className={'list__item'} 
                             >
@@ -76,7 +66,7 @@ const MainPage = () => {
                                 <p>{x.type}</p>
                             
                             </li>
-                            </NavLink>
+                            </Link>
                         )}
                     </ul>
                     <div className="content__blockImg">
@@ -87,6 +77,7 @@ const MainPage = () => {
                     {data?.data.map(x => (
                         <Good good={x} className={'cardMain'}/>
                     ))}
+                    {/* {data && <Good good={data.data[0]} className={'cardMain'}/>} */}
                 </ul>
                 
             </div>
