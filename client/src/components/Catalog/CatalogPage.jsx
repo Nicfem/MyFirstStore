@@ -1,19 +1,15 @@
 import { useState } from "react"
 import { NavLink, useParams } from "react-router-dom"
 import { useGetDiviceByIdQuery, useGetOptionQuery } from "../../Redux/Device/deviceAPI"
-
 import ArouRight from "../icons/ArouRight"
 import { Arrou } from "../icons/Arrou"
-import { Good } from "../MainPage/Good"
+import { Good } from "../MainPage/itemGood/Good"
 import './CatalogPage.scss'
 
 const CatalogPage = () => {
     let [option, setOption] = useState([])
-    const [title, setTitle] = useState([])
-    const [description, setDescription] = useState([])
     const type = useParams(CatalogPage)
     const {data} = useGetDiviceByIdQuery({'type' : type.type, 'page' : '0', 'limit' : '15', 'body' : option})
-    const serv = 'http://localhost:5000/'
 
     let {data : dataServ} = useGetOptionQuery(type.type)
     let [servHash, setServHash] = useState({})

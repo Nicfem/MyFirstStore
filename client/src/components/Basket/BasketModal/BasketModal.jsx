@@ -1,7 +1,7 @@
 import NewBasketSVG from './../../../img/NoBasket.svg'
 
 
-export const BasketModal = ({setActive}) => {
+export const BasketModal = () => {
 
     return (
         <>

@@ -3,8 +3,7 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useGetAllById1Query } from '../../../Redux/Device/deviceAPI'
 import { selectUser } from '../../../selectors/selectors'
-import { Good } from '../../MainPage/Good'
-import { Goods } from '../../MainPage/Goods'
+import { Good } from '../../MainPage/itemGood/Good'
 import './Favorites.scss'
 
 export const Favorites = () => {

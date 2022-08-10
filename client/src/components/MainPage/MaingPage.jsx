@@ -4,7 +4,7 @@ import { useGetDiviceByIdQuery } from "../../Redux/Device/deviceAPI";
 import {  useGetTypesQuery } from "../../Redux/Type/typeAPI";
 import { Link } from "react-router-dom";
 import img1 from '../../img/content.png'
-import { Good } from "./Good";
+import { Good } from "./itemGood/Good";
 
 const MainPage = () => {
     const [limit, setLimit] = useState(15)

@@ -2,10 +2,10 @@ import { useEffect } from "react"
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-import { addUserBasket, delUserBasket } from "../../Redux/Slice/userSlice"
-import { useAddFavoriteGoodMutation, useAddToBasketMutation, useDelBasketMutation, useDelFavoriteGoodMutation } from "../../Redux/User/userAPI"
-import { selectUser } from "../../selectors/selectors"
-import { Loader } from "../Loader"
+import { addUserBasket, delUserBasket } from "../../../Redux/Slice/userSlice"
+import { useAddFavoriteGoodMutation, useAddToBasketMutation, useDelBasketMutation, useDelFavoriteGoodMutation } from "../../../Redux/User/userAPI"
+import { selectUser } from "../../../selectors/selectors"
+import { Loader } from "../../Loader"
 
 
 const serv = 'http://localhost:5000/'

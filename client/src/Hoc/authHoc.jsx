@@ -1,15 +1,15 @@
 import { useSelector } from "react-redux"
-import AuthPage from "../Auth/AuthPage"
-
+import { Navigate } from "react-router-dom";
 
 const AuthHoc = ({children}) => {
     let auth = useSelector(state => state.user.isAuth)
+    
 
     if(auth) {
         return children
     }
     
-    return <AuthPage/>
+    return Navigate({to: '/auth'})
 }
 
 export default AuthHoc

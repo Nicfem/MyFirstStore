@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch} from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { setUser } from "../../Redux/Slice/userSlice";
 import { useLoginMutation, useRegistrationMutation } from "../../Redux/User/authAPI";
-import './AuthPage.scss'
+import './AuthCard.scss'
 
 
 
-export const AuthPageCard = ({setActive}) => {
+export const AuthCard = ({setActive}) => {
 
     const dispath = useDispatch()
 

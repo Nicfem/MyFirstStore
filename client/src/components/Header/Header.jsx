@@ -14,7 +14,7 @@ import { Like } from "../icons/Like";
 import { selectUser } from "../../selectors/selectors";
 import { useState } from "react";
 import { ModalComponent } from "./ModalComponent/ModalComponent";
-import { AuthPageCard } from "../Auth/AuthPage copy";
+import { AuthCard } from "../Auth/AuthCard";
 import { BasketModal } from "../Basket/BasketModal/BasketModal";
 
 
@@ -32,7 +32,7 @@ const Header = () => {
                     <BasketModal setActive={setActiveBasket}/>
                 </ModalComponent>
                 <ModalComponent active={activeAuth} setActive={setActiveAuth}>
-                    <AuthPageCard setActive={setActiveAuth}/>
+                    <AuthCard setActive={setActiveAuth}/>
                 </ModalComponent>
                 <div className="container">
                     <div className="header__top top-header">
