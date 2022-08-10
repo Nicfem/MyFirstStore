@@ -13,7 +13,7 @@ export const AuthPageCard = ({setActive}) => {
 
     const navigate = useNavigate()
 
-    const goProfile = () => navigate('profile', {replace : true})
+    const goProfile = () => navigate('profile/userInfo', {replace : true})
 
     const [loginHide, setLoginHide] = useState(false)
 

@@ -101,6 +101,7 @@
         font-weight: 700;
         color: color.$blue;
         transition: 0.2s;
+        cursor: pointer;
 
         &:hover {
             background-color: color.$blue;

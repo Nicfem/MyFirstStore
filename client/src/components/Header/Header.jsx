@@ -85,7 +85,7 @@ const Header = () => {
                                         </li>
                                     
                                     {auth ? 
-                                        <NavLink to='profile'>
+                                        <NavLink to='profile/userInfo'>
                                             <span className="actions-header__profiel">
                                                 <ProfileSVG/>
                                             </span>
