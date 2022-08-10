@@ -6,7 +6,7 @@ import { AuthCard } from './components/Auth/AuthCard';
 import MainPage from './components/MainPage/MaingPage';
 import { Route, Routes } from 'react-router-dom';
 import AuthHoc from './Hoc/authHoc';
-import ProductDiscription from './components/MainPage/productDescription';
+import ProductDiscription from './components/MainPage/ProductDescription/ProductDescription';
 import CatalogPage from './components/Catalog/CatalogPage';
 import { useLazyGetUserQuery } from './Redux/User/userAPI';
 import { Basket } from './components/Basket/Basket';

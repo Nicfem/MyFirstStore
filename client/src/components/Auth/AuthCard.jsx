@@ -69,12 +69,6 @@ export const AuthCard = ({setActive}) => {
         })
     }
 
-
-    let test = {
-        name : 'dima'
-    }
-
-    delete test.name
     return (
         <>
                 <div className="Auth-Page-card">

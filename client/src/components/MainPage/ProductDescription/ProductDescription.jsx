@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
-import { useGetDeviceByQuery } from "../../Redux/Device/deviceAPI"
-import './Description.scss'
+import { useGetDeviceByQuery } from "../../../Redux/Device/deviceAPI"
+import './ProductDescription.scss'
 
 
 const ProductDiscription = () => {
