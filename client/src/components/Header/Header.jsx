@@ -1,16 +1,14 @@
 import React from "react";
 import './Header.scss'
 import { NavLink } from 'react-router-dom'
-import LogoSVG from "../icons/logo";
-import SearchSVG from "../icons/search";
-import GroupSVG from "../icons/group";
-import LikeAction from "../icons/NoLike";
-import CompAction from "../icons/compaireAction";
-import CartAction from "../icons/cartAction";
-import MenuIcon from "../icons/menu-icon"
+import LogoSVG from "../../svg/logo";
+import SearchSVG from "../../svg/search";
+import LikeAction from "../../svg/NoLike";
+import { ShopCartAction } from './../../svg/ShopCartAction'
+import MenuIcon from "../../svg/menu-icon"
 import { useSelector } from "react-redux";
-import ProfileSVG from "../icons/profileSVG";
-import { Like } from "../icons/Like";
+import ProfileSVG from "../../svg/profileSVG";
+import { Like } from "../../svg/Like";
 import { selectUser } from "../../selectors/selectors";
 import { useState } from "react";
 import { ModalComponent } from "./ModalComponent/ModalComponent";
@@ -44,8 +42,6 @@ const Header = () => {
                                     <input className="search-header__input" autoComplete="off" type="text" placeholder="Поиск" />
                                 </form>
                                 <ul className="actions-header">
-                                    <li className="actions-header__group group"><span className="group__item"><GroupSVG/></span></li>
-                                    <li className="actions-header__group group"><span className="group__item"><CompAction/></span></li>
                                     {auth ? 
                                         <NavLink to='profile/Favorites'>
                                             <li className="actions-header__group group">
@@ -71,7 +67,7 @@ const Header = () => {
                                             {User?.basket.length ?
                                                 <NavLink to='basket'>
                                                     <span className="group__item">
-                                                        <CartAction/>
+                                                        <ShopCartAction/>
                                                         <p className="group__counterLike">
                                                         {User?.basket.length}
                                                         </p>
@@ -79,7 +75,7 @@ const Header = () => {
                                                 </NavLink>
                                             :
                                                 <span className="group__item" onClick={() => setActiveBasket(true)}>
-                                                    <CartAction/>
+                                                    <ShopCartAction/>
                                                 </span>
                                             }
                                         </li>

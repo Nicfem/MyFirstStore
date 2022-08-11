@@ -1,4 +1,4 @@
-import loader from '../img/Spinner-1.4s-277px.svg'
+import loader from '../svg/Spinner.svg'
 
 export const Loader = () => {
 

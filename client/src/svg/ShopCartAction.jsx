@@ -1,4 +1,4 @@
-const CartAction = () => {
+export const ShopCartAction = () => {
     return (
         <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7.38164 19.7034C8.20955 19.7034 8.88071 19.0394 8.88071 18.2203C8.88071 17.4011 8.20955 16.7371 7.38164 16.7371C6.55372 16.7371 5.88257 17.4011 5.88257 18.2203C5.88257 19.0394 6.55372 19.7034 7.38164 19.7034Z" fill="#838688"/>
@@ -8,5 +8,3 @@ const CartAction = () => {
         </svg>  
     )
 }
-
-export default CartAction

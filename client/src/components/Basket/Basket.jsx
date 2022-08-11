@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import { selectOrderUser, selectOrderGoods, selectUser } from "../../selectors/selectors"
 import { setOrderGoods, setUser, setOrderOptionValue } from "../../Redux/Basket/basketSlice"
-import NewBasketSVG from '../../img/NoBasket.svg'
+import NewBasketSVG from '../../svg/ShoppingCart.svg'
 import { GoodList } from './GoodList/GoodList'
 import { BasketForm } from "./BasketForm/BasketForm"
 import { useRef } from "react"
@@ -65,18 +65,6 @@ export const Basket = () => {
             dispatch(setOrderGoods([]))
         })
     }
-
-    let test = [
-        "62e58136c13f9703ef2ddc36",
-        "62e58139c13f9703ef2ddc3c"
-    ]
-
-    let test2 = [
-        "62e58136c13f9703ef2ddc36",
-        "62e58139c13f9703ef2ddc3c"
-    ]
-
-    console.log(test.filter(x => !test2.includes(x)))
 
     return (
         <>

@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { NavLink, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useGetDiviceByIdQuery, useGetOptionQuery } from "../../Redux/Device/deviceAPI"
-import { Arrou } from "../icons/Arrou"
+import { Arrou } from "../../svg/Arrou"
 import { Good } from "../MainPage/itemGood/Good"
 import './CatalogPage.scss'
 
