@@ -5,7 +5,7 @@ import { selectOrderGoods, selectOrderUser } from "../../../selectors/selectors"
 import { useForm } from "react-hook-form"
 import { useEffect } from "react"
 import { useState } from "react"
-import { delAllUserBasket } from "../../../Redux/Slice/userSlice"
+import { delAllUserBasket } from "../../../Redux/User/userSlice"
 
 export const BasketForm = ({onSubmitRef}) => {
 

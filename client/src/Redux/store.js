@@ -1,19 +1,17 @@
 import { configureStore, getDefaultMiddleware, combineReducers} from '@reduxjs/toolkit'
-import counterReducer from './Slice/counterSlice'
 import { apiSlice } from './Device/deviceAPI'
 import { setupListeners } from '@reduxjs/toolkit/dist/query'
 import { types } from './Type/typeAPI'
 import { brand } from './Brand/brandAPI'
 import { authAPI } from './User/authAPI'
 import { userAPI } from './User/userAPI'
-import user from './Slice/userSlice'
+import user from './User/userSlice'
 import basket from './Basket/basketSlice'
 import { orders }   from './Order/OrderAPI'
 import formFilter from './Admin/FormFilter/FormFilter'
 import createDevSlice from './Admin/CreateDevice/CreateDevSlice'
 
 export const rootReduser = combineReducers({
-    counter: counterReducer,
     user: user,        
     basket: basket,
     formFilter: formFilter,

@@ -7,7 +7,7 @@ import { UserInfo } from "./PersonalData/UserInfo";
 import { Orders } from "./Orders/Orders";
 import { Order } from "./Orders/Order";
 import { PersonalData } from "./PersonalData/personalData";
-import { logout } from "../../Redux/Slice/userSlice";
+import { logout } from "../../Redux/User/userSlice";
 import { PurchaseHistory } from "./PurchaseHistory/PurchaseHistory";
 
 

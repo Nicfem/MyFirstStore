@@ -21,32 +21,9 @@ export const authAPI = createApi({
                 body,
                 credentials: 'include',
             })
-        }),
-        // users: builder.query({
-        //     query:(id) => ({
-        //         url: `in/${id}`,
-        //         credentials: 'include',
-        //         headers: {
-        //             authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        //         }
-        //     })
-        // }),
-        refresh: builder.mutation({
-            query:() => ({
-                url: '/refresh',
-                credentials: 'include'
-            })
-        }),
-        addFavorit: builder.mutation({
-            query:(id, body) => ({
-                url: `addFavorit${id}`,
-                credentials: 'include',
-                method: 'POST',
-                body : body
-            })
         })
     })
 })
 
 
-export const { useRegistrationMutation, useLoginMutation, useRefreshMutation } = authAPI
+export const { useRegistrationMutation, useLoginMutation} = authAPI

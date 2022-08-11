@@ -1,5 +1,5 @@
-import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react'
-import { addUserBasket, addUserFav, delUserBasket, delUserFav, logout, setUser } from '../Slice/userSlice'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { addUserBasket, addUserFav, delUserBasket, delUserFav, logout, setUser } from './userSlice'
 
 const rowBaseQuery = fetchBaseQuery({
     baseUrl: 'http://localhost:5000/api/user',
@@ -82,22 +82,11 @@ const dynamicBaseQuery = async (args, api, extraOptions) => {
 export const userAPI = createApi({
     reducerPath: 'userapi',
     baseQuery: dynamicBaseQuery,
-    tagTypes:['User'],
     endpoints: (builder) => ({
-        getUserMut: builder.mutation({
-            query: (id) => ({
-                url: `info/${id}`,
-                credentials: 'include',
-                
-            }),
-            providesTags:['User']
-        }),
         getUser: builder.query({
             query: () => ({
                 url: `info`
             }),
-            providesTags:['User'],
-            
         }),
         addFavoriteGood: builder.mutation({
             query:(body) => ({
@@ -105,7 +94,6 @@ export const userAPI = createApi({
                 method: 'PUT',
                 body
             }),
-            // invalidatesTags:['User']
         }),
         delFavoriteGood: builder.mutation({
             query:(body) => ({
@@ -113,7 +101,6 @@ export const userAPI = createApi({
                 method: 'PUT',
                 body
             }),
-            // invalidatesTags:['User']
         }),
         AddToBasket: builder.mutation({
             query:(body) => ({
@@ -121,7 +108,6 @@ export const userAPI = createApi({
                 method: 'PUT',
                 body
             }),
-            // invalidatesTags:['User']
         }),
         delBasket: builder.mutation({
             query:(body) => ({
@@ -129,7 +115,6 @@ export const userAPI = createApi({
                 method: 'PUT',
                 body
             }),
-            // invalidatesTags:['User']
         }),
         refreshToken: builder.query({
             query:() => ({
@@ -140,4 +125,4 @@ export const userAPI = createApi({
 })
 
 
-export const { useGetUserMutMutation, useAddFavoriteGoodMutation, useDelFavoriteGoodMutation, useGetUserQuery, useLazyGetUserQuery, useAddToBasketMutation, useDelBasketMutation } = userAPI
+export const { useAddFavoriteGoodMutation, useDelFavoriteGoodMutation, useLazyGetUserQuery, useAddToBasketMutation, useDelBasketMutation } = userAPI
