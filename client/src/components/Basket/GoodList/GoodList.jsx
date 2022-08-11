@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { decreaseQuantity, increaseQuantity } from "./../../../Redux/Basket/basketSlice"
 import { useDelBasketMutation } from "../../../Redux/User/userAPI"
-import { BasketSVG } from "../../icons/BasketSVG"
+import TrashBox from './../../../svg/TrashBox.svg'
 
 const serv = 'http://localhost:5000/'
 
@@ -38,7 +38,7 @@ export const GoodList = ({good}) => {
                     <button className="basket-form__button-basket"
                         onClick={() => delBasket({goodsId : good._id})}
                     >
-                        <BasketSVG/>
+                        <img src={TrashBox}/>
                     </button>
 
                 </div>  

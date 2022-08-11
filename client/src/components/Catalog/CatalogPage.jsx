@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { NavLink, useParams } from "react-router-dom"
 import { useGetDiviceByIdQuery, useGetOptionQuery } from "../../Redux/Device/deviceAPI"
-import ArouRight from "../icons/ArouRight"
 import { Arrou } from "../icons/Arrou"
 import { Good } from "../MainPage/itemGood/Good"
 import './CatalogPage.scss'
@@ -80,7 +79,6 @@ const CatalogPage = () => {
         <>  
             <div className="container">
                 <div className="CatalogPage__Navigate">
-                    <NavLink className={'NavLink NavLink-Catalog'} to={'/'}><p>Главная</p><ArouRight/></NavLink><NavLink className={'NavLink NavLink-Catalog'} to={'/Catalog'}><p>Каталог</p><ArouRight/></NavLink><p>{type.type}</p>
                 </div>
                 <p className="CatalogPage__title">Каталог</p>
                 <div className="content">
