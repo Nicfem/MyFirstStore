@@ -3,10 +3,9 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     isAuth : false,
     User : {
-        basket : JSON.parse(localStorage.getItem('favoritesGoods') ?? '[]'),
+        basket : JSON.parse(localStorage.getItem('basketGoods') ?? '[]'),
     }
 }
-
 
 export const user = createSlice({
     name: 'user',
@@ -21,7 +20,7 @@ export const user = createSlice({
             localStorage.removeItem('accessToken')
             state.isAuth = false
             state.User = {
-                basket : JSON.parse(localStorage.getItem('favoritesGoods') ?? '[]')
+                basket : JSON.parse(localStorage.getItem('basketGoods') ?? '[]')
             }
         },
         setFavoriteGoods: (state, action) => {
@@ -29,13 +28,18 @@ export const user = createSlice({
         },
         delUserBasket: (state, action) => {
             if(!state.isAuth) {
-                let goods = JSON.parse(localStorage.getItem('favoritesGoods'))
+                let goods = JSON.parse(localStorage.getItem('basketGoods'))
                 goods = goods.filter(x => x != action.payload)
-                localStorage.setItem('favoritesGoods', JSON.stringify(goods))
+                localStorage.setItem('basketGoods', JSON.stringify(goods))
             }
             state.User.basket = state.User.basket.filter(x => x != action.payload)
         },
         delAllUserBasket: (state, action) => {
+            if(!state.isAuth) {
+                let goods = JSON.parse(localStorage.getItem('basketGoods'))
+                goods = goods.filter(x => !action.payload.includes(x))
+                localStorage.setItem('basketGoods', JSON.stringify(goods))
+            }
             state.User.basket = state.User.basket.filter(x => !action.payload.includes(x))
         },
         delUserFav: (state, action) => {
@@ -46,12 +50,12 @@ export const user = createSlice({
         },
         addUserBasket: (state, action) => {
             if(!state.isAuth) {
-                let goods = JSON.parse(localStorage.getItem('favoritesGoods')) 
+                let goods = JSON.parse(localStorage.getItem('basketGoods')) 
                 if(!goods) {
-                    localStorage.setItem('favoritesGoods', JSON.stringify([action.payload]))
+                    localStorage.setItem('basketGoods', JSON.stringify([action.payload]))
                 } else {
                     goods.push(action.payload)
-                    localStorage.setItem('favoritesGoods', JSON.stringify(goods))
+                    localStorage.setItem('basketGoods', JSON.stringify(goods))
                 }
             }
             state.User.basket.push(action.payload)

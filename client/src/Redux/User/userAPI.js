@@ -12,6 +12,7 @@ const rowBaseQuery = fetchBaseQuery({
         return headers
     }
 },)
+
 const dynamicBaseQuery = async (args, api, extraOptions) => {
 
     let userId = api.getState().user.User?._id
@@ -20,7 +21,6 @@ const dynamicBaseQuery = async (args, api, extraOptions) => {
 
     if(api.type == 'mutation') {
         if(!isAuth) {
-            console.log('wrok')
             if(args.url == 'delBasket') {
                 api.dispatch(delUserBasket(args.body.goodsId)) 
                 return

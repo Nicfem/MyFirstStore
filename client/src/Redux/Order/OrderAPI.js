@@ -20,8 +20,15 @@ export const orders = createApi({
             query: (id) => ({
                 url: `getAllWithGoods/${id}`
             })
+        }),
+        confirmOrder: build.mutation({
+            query:(body) => ({
+                url: `confirmOrder`,
+                method: 'POST',
+                body
+            })
         })
     })
 })
 
-export const { useGetOrdersQuery, useGetOrdersOneQuery, useGetAllWithGoodsQuery } = orders
+export const { useGetOrdersQuery, useGetOrdersOneQuery, useGetAllWithGoodsQuery, useConfirmOrderMutation } = orders
