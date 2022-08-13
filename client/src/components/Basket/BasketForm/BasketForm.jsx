@@ -4,10 +4,12 @@ import { setOrderGoods, setOrderOptionValue } from "../../../Redux/Basket/basket
 import { selectOrderGoods, selectOrderUser } from "../../../selectors/selectors"
 import { useForm } from "react-hook-form"
 import { useEffect } from "react"
-import { useState } from "react"
 import { delAllUserBasket } from "../../../Redux/User/userSlice"
+import { useConfirmOrderMutation } from "../../../Redux/Order/OrderAPI"
 
 export const BasketForm = ({onSubmitRef}) => {
+
+    const [confOrder] = useConfirmOrderMutation()
 
     const User = useSelector(selectOrderUser)
 
@@ -40,18 +42,10 @@ export const BasketForm = ({onSubmitRef}) => {
     },[User])
 
     const confirmOrder = (data) => {
-
-        fetch('http://localhost:5000/api/orders/confirmOrder', {
-        method : "POST",
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-        body : JSON.stringify({...data, goods : Goods})
-        }).then(() => {
-            console.log('wrok')
-            dispatch(setOrderGoods([]))
+        confOrder({...data, goods : Goods}).then(
+            dispatch(setOrderGoods([])),
             dispatch(delAllUserBasket(Goods.map(x => x._id)))
-        })
+        )
     }
     
     return (
