@@ -1,0 +1,26 @@
+.Corusel {
+    &__container {
+        height: 500px;
+        width: 970px;
+        margin-left: 20px;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__window {
+        // height: 100%;
+        // width: 100%;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+
+    &__all-items-container {
+        height: 100%;
+        display: flex;
+        transition: translate;
+        transition-property: transform;
+        transition-duration: 400ms;
+        transition-timing-function: ease-in-out;
+    }
+}

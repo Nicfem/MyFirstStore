@@ -5,6 +5,14 @@ import {  useGetTypesQuery } from "../../Redux/Type/typeAPI";
 import { Link } from "react-router-dom";
 import img1 from '../../img/content.png'
 import { Good } from "./itemGood/Good";
+import { Corusel } from "../items/Corusel/Corusel";
+
+
+const arrImg = [
+    'http://localhost:5000/Slider/slide-1.jpg',
+    'http://localhost:5000/026e6340-b60c-472a-b3b6-9827a50849d2.jpg',
+    'http://localhost:5000/0c726a35-dba3-4cdb-9da7-86234c9330a2.jpg',
+]
 
 const MainPage = () => {
     const [limit, setLimit] = useState(15)
@@ -44,22 +52,24 @@ const MainPage = () => {
                         {type && type.map(x => 
                             <Link className={'list__item'} to={'/Catalog/' + x.type}>
                                 <li 
-                                // className={'list__item'} 
                                 >
                                     <p>{x.type}</p>
                                 </li>
                             </Link>
                         )}
                     </ul>
-                    <div className="content__blockImg">
-                        <img className="logoImg" loading="lazy" src={img1}/>
-                    </div>
+                        <Corusel>
+                            {arrImg.map(x => 
+                                <Link to={'/Catalog'}>
+                                    <img className="slider-img" src={x}/>    
+                                </Link>
+                            )}
+                        </Corusel>
                 </div>  
                 <ul className="goods">
                     {data?.data.map(x => (
                         <Good good={x} className={'cardMain'}/>
                     ))}
-                    {/* {data && <Good good={data.data[0]} className={'cardMain'}/>} */}
                 </ul>
                 
             </div>

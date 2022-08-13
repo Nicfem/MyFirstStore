@@ -109,12 +109,7 @@
 }
 
 .group {
-    &__item {
-        cursor: pointer;
-        display: flex;
-        align-items: center
-    }
-
+    cursor: pointer;
     &__counterLike {
         position: absolute;
         right: 0;
