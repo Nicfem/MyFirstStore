@@ -58,10 +58,11 @@ const MainPage = () => {
                             </Link>
                         )}
                     </ul>
+                    
                         <Corusel>
                             {arrImg.map(x => 
                                 <Link to={'/Catalog'}>
-                                    <img className="slider-img" src={x}/>    
+                                    <img src={x}/>    
                                 </Link>
                             )}
                         </Corusel>

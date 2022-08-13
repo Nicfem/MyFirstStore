@@ -17,8 +17,9 @@ export const Corusel = ({ children }) => {
                 return cloneElement(child, {
                     style: {
                         height: '100%',
-                        minWidth: `${PAGE_WIDTH}px`,
-                        maxWidth: `${PAGE_WIDTH}px`,
+                        // minWidth: `${PAGE_WIDTH}px`,
+                        minWidth: `100%`,
+                        // maxWidth: `${PAGE_WIDTH}px`,
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center'
