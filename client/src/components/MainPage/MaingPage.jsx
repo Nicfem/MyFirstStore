@@ -9,9 +9,6 @@ import { Good } from "./itemGood/Good";
 const MainPage = () => {
     const [limit, setLimit] = useState(15)
     const [fetching, setFetching] = useState(false)
-    
-    
-
     const {data, isFetching} =  useGetDiviceByIdQuery({'body' : '', 'page' : '0', 'limit' : limit})
     const {data: type} = useGetTypesQuery()
 
@@ -37,35 +34,20 @@ const MainPage = () => {
             setFetching(true)
         } 
     }
-    // const handl = (body) => {
-        
-    //     if (body.checked === true) {
-    //         option.push(body.value)
-    //     }
-    //     if (body.checked === false) {
-    //         const index = option.indexOf(body.value)
-    //         option.splice(index, 1)
-    //     }
-    //     console.log(option)
-    // }
-
-    console.log('renderMainPage')
     
     return (
         <>
             <div className="container">
-                <div className="content">
+                <div className="content main-pg-content">
                     <ul className="catalog-action__list list">
                         
                         {type && type.map(x => 
-                            <Link to={'/Catalog/' + x.type}>
-                            <li 
-                            className={'list__item'} 
-                            >
-                            
-                                <p>{x.type}</p>
-                            
-                            </li>
+                            <Link className={'list__item'} to={'/Catalog/' + x.type}>
+                                <li 
+                                // className={'list__item'} 
+                                >
+                                    <p>{x.type}</p>
+                                </li>
                             </Link>
                         )}
                     </ul>
