@@ -1,4 +1,5 @@
 import { createRef, useCallback } from 'react'
+import { useLayoutEffect } from 'react'
 import { useEffect, useState, Children, cloneElement, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import './Corusel.scss'
@@ -171,18 +172,16 @@ export const Corusel = ({ pagesArr }) => {
     },[])
 
 
-
-
     useEffect(() => {
+        console.log('useEffect')
         const interval = setInterval(() => {
-            console.log('work')
             handlRightArrow()
         }, 3000)
 
         return () => {
             clearInterval(interval) 
         }
-    },[handlRightArrow])
+    },[pages])
 
     return (
         <div className="Corusel__container">
