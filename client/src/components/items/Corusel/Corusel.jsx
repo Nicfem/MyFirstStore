@@ -181,7 +181,7 @@ export const Corusel = ({ pagesArr }) => {
         return () => {
             clearInterval(interval) 
         }
-    },[pages])
+    },[pages, liWidth])
 
     return (
         <div className="Corusel__container">
