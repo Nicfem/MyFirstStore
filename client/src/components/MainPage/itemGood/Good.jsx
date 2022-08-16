@@ -12,8 +12,6 @@ const serv = 'http://localhost:5000/'
 
 export const Good = ({good, className}) => {
 
-    console.log('render')
-
     const dispatch = useDispatch()
 
     const { basket, favoritesGoods } = useSelector(selectUser)

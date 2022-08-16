@@ -12,6 +12,8 @@ const arrImg = [
     'http://localhost:5000/Slider/slide-1.jpg',
     'http://localhost:5000/026e6340-b60c-472a-b3b6-9827a50849d2.jpg',
     'http://localhost:5000/0c726a35-dba3-4cdb-9da7-86234c9330a2.jpg',
+    'https://elama.ru/info_static/uploads/images/f7/4d/62d9054779d2e-Zakon-o-markirovke-internet-reklamy--chto-eto-takoe-i-kak-gotovitsya.png',
+    // 'http://localhost:5000/0c726a35-dba3-4cdb-9da7-86234c9330a2.jpg',
 ]
 
 const MainPage = () => {
@@ -42,6 +44,16 @@ const MainPage = () => {
             setFetching(true)
         } 
     }
+
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         console.log('work')
+    //     }, 1000)
+
+    //     return () => {
+    //         clearInterval(interval) 
+    //     }
+    // },[])
     
     return (
         <>
@@ -59,12 +71,14 @@ const MainPage = () => {
                         )}
                     </ul>
                     
-                        <Corusel>
-                            {arrImg.map(x => 
-                                <Link to={'/Catalog'}>
-                                    <img src={x}/>    
-                                </Link>
-                            )}
+                        <Corusel pagesArr={arrImg}>
+                            {/* {arrImg.map(x => 
+                                <li>
+                                    <Link className="slides" to={'/'}>
+                                        <img src={x}/>    
+                                    </Link>
+                                </li>
+                            )} */}
                         </Corusel>
                 </div>  
                 <ul className="goods">

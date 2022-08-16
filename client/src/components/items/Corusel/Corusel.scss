@@ -1,7 +1,7 @@
 .Corusel {
     &__container {
-        // height: 500px;
-        // width: 970px;
+        width: calc(100% - 315px);
+        position: relative;
         margin-left: 20px;
         margin-top: 20px;
         display: flex;
@@ -9,17 +9,24 @@
     }
 
     &__window {
-        height: 100%;
-        width: 100%;
+        flex-grow: 1;
         overflow: hidden;
+        transition: max-height .25s linear;
     }
 
     &__all-items-container {
         height: 100%;
         display: flex;
-        transition: translate;
+        flex-direction: row;
         transition-property: transform;
-        transition-duration: 400ms;
-        transition-timing-function: ease-in-out;
+        align-items: flex-start;
+        // transition: translate;
+        // transition-property: transform;
+        // transition-duration: 400ms;
+        // transition-timing-function: ease-in-out;
     }
+}
+
+.slider_item {
+    flex-shrink: 0;
 }
