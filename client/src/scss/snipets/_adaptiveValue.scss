@@ -1,0 +1,15 @@
+
+@use './../container' as width;
+
+@mixin adaptiveValue($propretry, $minSize, $maxSize) {
+    $addSize: $maxSize - $minSize;
+    #{$propretry}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth - $minWidth}))
+
+    // #{$style}: calc(#{$min}px + (#{$max} - #{#{$min}}) * ((100vw - 620px) / 1300))
+    // #{$style}: calc(#{$min}px + (#{$max} - #{#{$min}}) * ((100vw - 320px) / (1920 - 320)))
+} 
+
+@mixin adaptiveValueWidth($propretry, $minSize, $maxSize, $firstWidth, $lastWidth) {
+    $addSize: $maxSize - $minSize;
+    #{$propretry}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$lastWidth + px}) / #{$firstWidth - $lastWidth}))
+}

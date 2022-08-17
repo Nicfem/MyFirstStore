@@ -6,14 +6,13 @@ import { Link } from "react-router-dom";
 import img1 from '../../img/content.png'
 import { Good } from "./itemGood/Good";
 import { Corusel } from "../items/Corusel/Corusel";
+import { useMemo } from "react";
 
 
 const arrImg = [
-    'http://localhost:5000/Slider/slide-1.jpg',
-    'http://localhost:5000/026e6340-b60c-472a-b3b6-9827a50849d2.jpg',
-    'http://localhost:5000/0c726a35-dba3-4cdb-9da7-86234c9330a2.jpg',
-    'https://elama.ru/info_static/uploads/images/f7/4d/62d9054779d2e-Zakon-o-markirovke-internet-reklamy--chto-eto-takoe-i-kak-gotovitsya.png',
-    // 'http://localhost:5000/0c726a35-dba3-4cdb-9da7-86234c9330a2.jpg',
+    'https://img5.goodfon.ru/original/1920x1080/3/9c/space-planet-landscape-wallpapers-1920-x-1080.jpg',
+    'https://wallbox.ru/resize/1920x1080/wallpapers/main2/201726/grafika-kvadraty-3d.jpg',
+    'https://img2.akspic.ru/crops/1/9/0/3/6/163091/163091-esteticheskoe_vaporwave-estetika-graficeskij_dizajn-grafika-reklama-1920x1080.jpg',
 ]
 
 const MainPage = () => {
@@ -45,16 +44,6 @@ const MainPage = () => {
         } 
     }
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         console.log('work')
-    //     }, 1000)
-
-    //     return () => {
-    //         clearInterval(interval) 
-    //     }
-    // },[])
-    
     return (
         <>
             <div className="container">
@@ -85,6 +74,7 @@ const MainPage = () => {
                     {data?.data.map(x => (
                         <Good good={x} className={'cardMain'}/>
                     ))}
+                    {/* {comp} */}
                 </ul>
                 
             </div>

@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, memo } from "react"
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
@@ -10,8 +10,8 @@ import { Loader } from "../../Loader"
 
 const serv = 'http://localhost:5000/'
 
-export const Good = ({good, className}) => {
-
+export const Good = memo(({good, className}) => {
+    console.log('render')
     const dispatch = useDispatch()
 
     const { basket, favoritesGoods } = useSelector(selectUser)
@@ -99,4 +99,4 @@ export const Good = ({good, className}) => {
             
         </>
     )
-}
+})

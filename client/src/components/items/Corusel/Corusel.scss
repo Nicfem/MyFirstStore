@@ -1,6 +1,7 @@
 .Corusel {
     &__container {
-        width: calc(100% - 315px);
+        // width: calc(100% - 315px);
+        width: calc(100% - 330px);
         position: relative;
         margin-left: 20px;
         margin-top: 20px;
@@ -24,6 +25,26 @@
         // transition-property: transform;
         // transition-duration: 400ms;
         // transition-timing-function: ease-in-out;
+    }
+
+    &__button {
+        position: absolute;
+        width: 24px;
+        height: 100%;
+        background-color: red;
+        z-index: 1;
+        background-color: initial;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &--prev {
+            left: 0;
+        }
+
+        &--next {
+            right: 0;
+        }
     }
 }
 
