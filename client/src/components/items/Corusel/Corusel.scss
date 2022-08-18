@@ -1,9 +1,6 @@
 .Corusel {
     &__container {
-        // width: calc(100% - 315px);
-        // width: calc(100% - 330px);
         width: 970px;
-
 
         @media (max-width: 1340px) {
             width: calc(970px - ((1340px - 100vw) * 0.75));
@@ -28,10 +25,6 @@
         flex-direction: row;
         transition-property: transform;
         align-items: flex-start;
-        // transition: translate;
-        // transition-property: transform;
-        // transition-duration: 400ms;
-        // transition-timing-function: ease-in-out;
     }
 
     &__button {

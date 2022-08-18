@@ -1,6 +1,6 @@
 @use '../../scss/base/goodCart';
 @use'../../scss/snipets/adaptiveValue' as adaptive;
-@import '../../style.scss';
+@use '../../scss/color';
 
 .goods {
     display: flex;
@@ -17,22 +17,15 @@
 
 
 .list {
-
-
-    // @include adaptiveValue('max-width', 150, 310);
-    // @include adaptiveValue('min-width', 150, 310);
     min-width: 310px;
     max-width: 310px;
-
 
     display: flex;
     flex-wrap: wrap;
 
     @media (max-width: 1340px) {
-        // @include adaptive.adaptiveValueWidth('max-width', 172, 310, 1300, 1024);
-        // @include adaptive.adaptiveValueWidth('min-width', 172, 310, 1300, 1024);
-        min-width: calc(310px - ((1340px - 100vw) / 4));
-        max-width: calc(310px - ((1340px - 100vw) / 4));
+        @include adaptive.adaptiveValueWidth('max-width', 231, 310, 1340, 1024);
+        @include adaptive.adaptiveValueWidth('min-width', 231, 310, 1340, 1024);
     }
 
     @media (max-width: 1024px) {
@@ -41,7 +34,7 @@
 
     &__item {
         width: 100%;
-        background-color: rgba($color: $blue, $alpha: 0.1);
+        background-color: rgba($color: color.$blue, $alpha: 0.1);
         display: flex;
         align-items: center;
         color: black;
@@ -53,7 +46,7 @@
         
 
         &:hover {
-            background-color: $blue;
+            background-color: color.$blue;
         }
     }
 

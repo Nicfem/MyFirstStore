@@ -1,4 +1,6 @@
+@use '../../scss/snipets/adaptiveValue' as adaptive;
 @import '../../style.scss';
+
 
 
 
@@ -154,27 +156,35 @@
         justify-content: center;
     }
     &__ul {
-        padding-left: 20px;
+        padding-left: 30px;
         display: flex;
-        gap: 40px;
+        gap: 60px;
         white-space: nowrap;
-        @media (max-width: 1300px) {
-            @include adaptiveValue("gap", 6, 60);
+        @media (max-width: 1340px) {
+            @include adaptive.adaptiveValueWidth('padding-left', 5, 30, 1340, 768);
+            @include adaptive.adaptiveValueWidth('gap', 20, 60, 1340, 1024)
         }
         @media (max-width: 1024px) {
             padding-left: 0;
+            @include adaptive.adaptiveValueWidth('gap', 6, 20, 1024, 768)
         }
     }
 
     &__block {
-        @media (max-width: 1024px) {
-            display: none;
-        }
-        @include adaptiveValue('min-width', 150, 310);
+        width: 310px;
         display: flex;
         align-items: center;
         height: 60px;
         background-color: $darkBlue;
+
+        @media (max-width: 1340px) {
+            @include adaptive.adaptiveValueWidth('max-width', 231, 310, 1340, 1024);
+            @include adaptive.adaptiveValueWidth('min-width', 231, 310, 1340, 1024);
+        }
+
+        @media (max-width: 1024px) {
+            display: none;
+        }
     }
 
     &__block>svg {
