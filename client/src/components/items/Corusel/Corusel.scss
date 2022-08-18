@@ -6,11 +6,18 @@
             width: calc(970px - ((1340px - 100vw) * 0.75));
         }
 
+        
         position: relative;
         margin-left: 20px;
         margin-top: 20px;
         display: flex;
         align-items: center;
+
+
+        @media (max-width: 1024px) {
+            width: 100%;
+            margin-left: 0px;
+        }
     }
 
     &__window {

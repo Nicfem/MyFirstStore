@@ -12,7 +12,7 @@
 
 .cardMain {
     @include goodCart.cardGood(25%);
-    @include goodCart.cardGoodMediaOption(33%, 50%);
+    @include goodCart.cardGoodMediaOption(33.3333%, 50%);
 }
 
 
