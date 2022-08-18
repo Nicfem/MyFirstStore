@@ -52,7 +52,7 @@ export const Corusel = ({ pagesArr }) => {
                 setLiWidth(() => {
                     const Window = window.innerWidth
                     if(Window < 1340) {
-                        return 970 - (1340 - Window)
+                        return 970 - ((1340 - Window) * 0.75)
                     } else {
                         return 970
                     }
