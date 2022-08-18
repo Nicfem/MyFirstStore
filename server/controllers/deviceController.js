@@ -60,27 +60,6 @@ class DeviceController {
         }
 
         if(testOption != '') {
-            // const data = await Product.find({descriptions : {$elemMatch : {
-            //     title : 'Количество ядер',
-            //     description : '12',
-            // }}})
-            // res.send(data)
-
-            // const data = await Product.find({'descriptions' : 
-            //     { "$all" : [
-            //         { 
-            //             '$elemMatch' : {'title' : 'Количество ядер', 'description' : '6'},
-            //             '$elemMathc' : {'title' : 'Количество потоков', 'description' : '24'}
-            //         }
-            //     ]}  
-            // })
-
-            // const data = await Product.find({'$or' : [{
-            //     descriptions : {
-            //     '$elemMatch' : {'title' : 'Количество ядер', 'description' : '2'},
-            //     '$elemMatch' : {'title' : 'Количество потоков', 'description' : '8'}}
-            // }]})
-
             // const data = await Product.find({'$and': [
                 // {"$or" : [
                 //     {'descriptions' : {'$elemMatch' : {'title' : 'Количество ядер', 'description' : '6'}}},
@@ -98,11 +77,6 @@ class DeviceController {
                 // ]}, 
                 // {'descriptions' : {'$elemMatch' : {'title' : 'Тип разъема', 'description' : 'Socket 1151'}}}
             // ]})
-            // if (testOption == '') {
-            //     const data = await Product.find()
-            //     res.send(data)
-            // }
-            
             const data = await Product.find({'$and': testOption, type : type})
             res.send({data})
             
@@ -187,50 +161,6 @@ class DeviceController {
     }
     async getOption (req, res) {
         const {type} = req.query
-        console.log(type)
-        // res.json([
-        // {option_title : 'Количество ядер',
-        // option_value : ['4', '6', '12']},
-        // {option_title : 'Количество потоков',
-        // option_value : ['6', '12', '8', '24']},
-        // {option_title : 'Тип разъема',
-        // option_value: ['Socket 1200', 'Socket 1151']}
-        // ])
-        // res.json([
-        //     {option_title : 'Количество ядер',option_value : 
-        //     [
-        //         {option_value_id : '1', value : '4'},
-        //         {option_value_id : '2', value : '6'},
-        //         {option_value_id : '3', value : '8'},
-        //         {option_value_id : '4', value : '12'},
-        //         {option_value_id : '5', value : '24'},
-        //     ]
-        //     },
-        //     {option_title : 'Количество потоков',
-        //     option_value : 
-        //     [
-        //         {option_value_id : '6', value : '6'},
-        //         {option_value_id : '7', value : '8'},
-        //         {option_value_id : '8', value : '12'},
-        //         {option_value_id : '9', value : '24'},
-        //     ]
-        //     },
-        //     {option_title : 'Тип разъема',
-        //     option_value: 
-        //     [
-        //         {option_value_id : '10', value : 'Socket 1200'},
-        //         {option_value_id : '11', value : 'Socket 1151'}
-        //     ]
-        //     },
-        //     {option_title : 'Количество видео памяти',
-        //     option_value: 
-        //     [
-        //         {option_value_id : '12', value : '8 Гб'},
-        //         {option_value_id : '13', value : '4 Гб'}
-        //     ]
-        //     }
-        // ])
-        // const data = await ProductOptions.find({type})
         const data = await ProductOptions.findOne({type})
         res.send(data)
     }
@@ -286,6 +216,12 @@ class DeviceController {
         const option = id.split(',')
         const data = await Product.find({_id : option})
         res.send(data)
+    }
+
+    async getSearchDevice (req, res) {
+        const {device} = req.params
+        const data = await Product.find({$text: {$search: `\"${device}\"`}}, {descriptions : 0, type: 0, brand: 0})
+        return res.send(data)
     }
 }
 

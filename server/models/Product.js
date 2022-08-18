@@ -17,4 +17,6 @@ const product = new Schema({
     img: {type: String}
 })
 
+product.index({ device : "text" })
+
 module.exports = model('Product', product)

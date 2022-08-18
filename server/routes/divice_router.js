@@ -9,7 +9,8 @@ router.get('/brand/options', DeviceController.getOptionAll)
 router.post('/brand/option', DeviceController.createOption)
 router.put('/brand/option', DeviceController.updateOption)
 router.get('/brand/deviceById', DeviceController.getAllDeviceById)
-router.get('/brand/:id', DeviceController.getOne)
+router.get('/brand/searchDevice/:device', DeviceController.getSearchDevice)
+router.get('/brand/:id', DeviceController.getOne) 
 
 
 module.exports = router

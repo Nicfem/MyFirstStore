@@ -49,7 +49,19 @@ export const apiSlice = createApi({
                 url: `deviceById?id=${id}`
             })
         }),
+        getSearchDevice: builder.query({
+            query:(device) => ({
+                url: `searchDevice/${device}`
+            })
+        })
     })
 })
 
-export const { useGetDiviceByIdQuery, useCreateDeviceMutation, useGetDeviceByQuery, useGetDeiceByTypeMutation, useGetOptionQuery, useGetOptionAllQuery, useGetAllByIdMutation, useGetAllById1Query } = apiSlice
+export const 
+        { 
+            useGetDiviceByIdQuery, useCreateDeviceMutation, 
+            useGetDeviceByQuery, useGetDeiceByTypeMutation, 
+            useGetOptionQuery, useGetOptionAllQuery, 
+            useGetAllByIdMutation, useGetAllById1Query,
+            useLazyGetSearchDeviceQuery,
+        } = apiSlice

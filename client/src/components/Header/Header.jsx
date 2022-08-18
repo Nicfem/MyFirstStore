@@ -2,7 +2,6 @@ import React from "react";
 import './Header.scss'
 import { NavLink } from 'react-router-dom'
 import LogoSVG from "../../svg/logo";
-import SearchSVG from "../../svg/search";
 import LikeAction from "../../svg/NoLike";
 import { ShopCartAction } from './../../svg/ShopCartAction'
 import MenuIcon from "../../svg/menu-icon"
@@ -14,6 +13,7 @@ import { useState } from "react";
 import { ModalComponent } from "./ModalComponent/ModalComponent";
 import { AuthCard } from "../Auth/AuthCard";
 import { BasketModal } from "../Basket/BasketModal/BasketModal";
+import { Search } from "./Search/Search";
 
 
 const Header = () => {
@@ -37,10 +37,7 @@ const Header = () => {
                         <div className="top-header__container">
                             <NavLink to='/' className="top-header__logo"><LogoSVG/></NavLink>
                             <div className="top-header__search">
-                                <form action="#" className="search-header">
-                                    <button type="submit" className="search-header__button"><SearchSVG/></button>
-                                    <input className="search-header__input" autoComplete="off" type="text" placeholder="Поиск" />
-                                </form>
+                                <Search/>
                                 <ul className="actions-header">
                                     {auth ? 
                                         <NavLink to='profile/Favorites'>

@@ -29,7 +29,6 @@ export const BasketForm = ({onSubmitRef}) => {
     })
     
     const onSubmit = data => {
-        console.log(data)
         if(data !== undefined && isValid) {
             confirmOrder(data)
         }
