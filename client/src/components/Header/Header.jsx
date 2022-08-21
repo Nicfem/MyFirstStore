@@ -1,16 +1,16 @@
 import React from "react";
 import './Header.scss'
 import { NavLink } from 'react-router-dom'
-import LogoSVG from "../../svg/logo";
-import LikeAction from "../../svg/NoLike";
-import { ShopCartAction } from './../../svg/ShopCartAction'
-import MenuIcon from "../../svg/menu-icon"
+import LogoSVG from "../../assets/svg/logo";
+import LikeAction from "../../assets/svg/NoLike";
+import { ShopCartAction } from './../../assets/svg/ShopCartAction'
+import MenuIcon from "../../assets/svg/menu-icon"
 import { useSelector } from "react-redux";
-import ProfileSVG from "../../svg/profileSVG";
-import { Like } from "../../svg/Like";
+import ProfileSVG from "../../assets/svg/profileSVG";
+import { Like } from "../../assets/svg/Like";
 import { selectUser } from "../../selectors/selectors";
 import { useState } from "react";
-import { ModalComponent } from "./ModalComponent/ModalComponent";
+import { Modal } from "../../shared/Interface";
 import { AuthCard } from "../Auth/AuthCard";
 import { BasketModal } from "../Basket/BasketModal/BasketModal";
 import { Search } from "./Search/Search";
@@ -22,16 +22,16 @@ const Header = () => {
     const User = useSelector(selectUser)
     const [activeBasket, setActiveBasket] = useState(false)
     const [activeAuth, setActiveAuth] = useState(false)
-    console.log('renderHeader')
+    
     return (
         <>
             <header className="header">
-                <ModalComponent active={activeBasket} setActive={setActiveBasket}>
+                <Modal active={activeBasket} setActive={setActiveBasket}>
                     <BasketModal setActive={setActiveBasket}/>
-                </ModalComponent>
-                <ModalComponent active={activeAuth} setActive={setActiveAuth}>
+                </Modal>
+                <Modal active={activeAuth} setActive={setActiveAuth}>
                     <AuthCard setActive={setActiveAuth}/>
-                </ModalComponent>
+                </Modal>
                 <div className="container">
                     <div className="header__top top-header">
                         <div className="top-header__container">

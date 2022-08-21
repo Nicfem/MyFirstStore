@@ -1,4 +1,4 @@
-import loader from '../svg/Spinner.svg'
+import loader from '../assets/svg/Spinner.svg'
 
 export const Loader = () => {
 

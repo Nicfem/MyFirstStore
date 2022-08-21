@@ -1,4 +1,4 @@
-@use '../../scss/base/goodCart';
+@use '../../assets/scss/base/goodCart';
 @import '../../style.scss';
 
 
@@ -46,7 +46,6 @@
 
 .form-search {
     width: 310px;
-    // margin-top: 40px;
     margin-right: 20px;
     left: 0;
     display: flex;
@@ -112,7 +111,6 @@
             transform: rotate(35deg);
             transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
             width: 50px;
-            // z-index: -10;
           }
         
         &:hover {
@@ -139,7 +137,6 @@
     }
 
     &__title {
-        // margin-top: 10px;
         line-height: 24px;
         font-weight: bold;
         cursor: pointer;
@@ -147,17 +144,6 @@
             color: $blue;
             text-decoration: underline;
         }
-        // width: 100%;
-        // height: 48px;
-        // background-color: #EDF2F6;
-
-        // display: flex;
-        // flex-direction: row;
-        // justify-content: space-between;
-        // align-items: center;
-        // padding: 10px 10px 10px 20px;
-        // gap: 10px;
-        // border-radius: 4px;
     }
 
     &__checkbox {
@@ -201,11 +187,7 @@
 
 .custom-checkbox:checked+label::before {
     background-color: $blue;
-    // border-color: #0b76ef;
-    // background-color: #0b76ef;
-    // background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
-    // background-image: url(../../img/Vector322.svg);
-    background-image: url(../../svg/Vector322.svg);
+    background-image: url(../../assets/svg/Vector322.svg);
 }
 
 .custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
@@ -228,5 +210,3 @@
   .custom-checkbox:disabled+label::before {
     background-color: #e9ecef;
   }
-
-//checkbox

@@ -1,11 +1,10 @@
 import { useGetAllById1Query } from "../../Redux/Device/deviceAPI"
 import './Basket.scss'
-import { Loader } from "../Loader"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import { selectOrderUser, selectOrderGoods, selectUser } from "../../selectors/selectors"
 import { setOrderGoods, setUser, setOrderOptionValue } from "../../Redux/Basket/basketSlice"
-import NewBasketSVG from '../../svg/ShoppingCart.svg'
+import NewBasketSVG from '../../assets/svg/ShoppingCart.svg'
 import { GoodList } from './GoodList/GoodList'
 import { BasketForm } from "./BasketForm/BasketForm"
 import { useRef } from "react"

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDebounce } from "../../../hooks/useDebounce";
 import { useLazyGetSearchDeviceQuery } from "../../../Redux/Device/deviceAPI";
-import SearchSVG from "../../../svg/search";
+import SearchSVG from "../../../assets/svg/search";
 import './Search.scss'
 import { SearchItem } from "./SearchItem";
 

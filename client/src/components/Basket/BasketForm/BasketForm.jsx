@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form"
 import { useEffect } from "react"
 import { delAllUserBasket } from "../../../Redux/User/userSlice"
 import { useConfirmOrderMutation } from "../../../Redux/Order/OrderAPI"
-import { BlockForm, Input } from "../../../shared/ui"
+import { Input } from "../../../shared/Interface"
 
 export const BasketForm = ({onSubmitRef}) => {
 

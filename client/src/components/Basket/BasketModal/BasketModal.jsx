@@ -1,4 +1,4 @@
-import NewBasketSVG from './../../../svg/ShoppingCart.svg'
+import NewBasketSVG from './../../../assets/svg/ShoppingCart.svg'
 
 export const BasketModal = () => {
 

@@ -125,14 +125,6 @@
     margin-bottom: 0;
 }
 
-// .basket-fomr-list {
-//     margin: 0;
-// }
-
-
-
-
-
 .total-price {
     width: 420px;
     height: 400px;
@@ -312,7 +304,7 @@ $blue2: #80bdff;
 
 .custom-radio:checked+label::before {
     border-color: #4878A6;
-    background-image: url("../../svg/Circle.svg");
+    background-image: url("../../assets/svg/Circle.svg");
 }
 
 /* стили для радиокнопки, находящейся в состоянии disabled */

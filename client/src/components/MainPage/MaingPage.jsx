@@ -3,10 +3,8 @@ import './MainPage.scss'
 import { useGetDiviceByIdQuery } from "../../Redux/Device/deviceAPI";
 import {  useGetTypesQuery } from "../../Redux/Type/typeAPI";
 import { Link } from "react-router-dom";
-import img1 from '../../img/content.png'
 import { Good } from "./itemGood/Good";
 import { Corusel } from "../items/Corusel/Corusel";
-import { useMemo } from "react";
 
 
 const arrImg = [

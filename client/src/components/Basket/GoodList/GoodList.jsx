@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { decreaseQuantity, increaseQuantity } from "./../../../Redux/Basket/basketSlice"
 import { useDelBasketMutation } from "../../../Redux/User/userAPI"
-import TrashBox from './../../../svg/TrashBox.svg'
+import TrashBox from './../../../assets/svg/TrashBox.svg'
 
 const serv = 'http://localhost:5000/'
 
