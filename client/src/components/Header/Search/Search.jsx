@@ -1,34 +1,39 @@
-// /brand/searchDevice/:device
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDebounce } from "../../../hooks/useDebounce";
 import { useLazyGetSearchDeviceQuery } from "../../../Redux/Device/deviceAPI";
 import SearchSVG from "../../../svg/search";
 import './Search.scss'
+import { SearchItem } from "./SearchItem";
 
 export const Search = () => {
 
     const [device, setDevice] = useState('')
-    const [data, setData] = useState([])
-    const [active, setActive] = useState(false)
-    const [searchDevice] = useLazyGetSearchDeviceQuery()
+    const [active, setActive] = useState(true)
+    const [hide, setHide] = useState(false)
+    const [searchDevice, {data}] = useLazyGetSearchDeviceQuery()
+    const debounced = useDebounce(device, 300)
     
+    useEffect(() => {
+        if(!device.length) {
+            return
+        }
+        searchDevice(device.trim())
+    },[debounced])
 
-
-    const submit = (e) => {
-        e.preventDefault()
-        if(device.length === 0) return setData([])
-        searchDevice(device).then(res => setData(res.data))
+    const onAnimationEnd = (e) => {
+        e.animationName === 'hide' && setHide(true)
     }
 
-    const serv = 'http://localhost:5000/'
+    const onAnimationStart = (e) => {
+        e.animationName === 'unHide' && setHide(false) 
+    }
 
     return (
-        <form onSubmit={e => submit(e)} className="search-header">
-            <button type="submit" className="search-header__button"><SearchSVG/></button>
+        <form className="search">
+            <button disabled={true} className="search__button"><SearchSVG/></button>
             <input 
-                className="search-header__input" 
-                autoComplete="off" 
-                onBlur={() => setTimeout(() => setActive(false),100) }
+                className="search__input"  
+                onBlur={() => setActive(false)}
                 onFocus={() => setActive(true)}
                 type="text" 
                 placeholder="Поиск" 
@@ -37,16 +42,17 @@ export const Search = () => {
             />
 
             {data && 
-                <div className="search-header__goods">
-                    {active &&
-                        data && data.map(x => 
-                            <Link to={`product/${x._id}`}>
-                                <div className="search-header__tile">
-                                    <img className="search-header__img" src={serv + x.img}/>
-                                    <p>{x.device}</p>
-                                </div>    
-                            </Link>
-                        )
+                <div 
+                    onAnimationEndCapture={onAnimationEnd} 
+                    onAnimationStart={onAnimationStart} 
+                    className={active ? 'search__goods active' : 'search__goods'}
+                >
+                    {
+                        device.length ?  
+                            !hide && data && data.map(x => 
+                                <SearchItem item={x}/>       
+                            )  
+                        : null
                     }
                 </div>
             }

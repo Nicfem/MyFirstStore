@@ -1,0 +1,12 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border: 1px solid #C8CACB;
+    border-radius: 8px;
+
+    &__title {
+        margin-bottom: 30px;
+    }
+    
+}

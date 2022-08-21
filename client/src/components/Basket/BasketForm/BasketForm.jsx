@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form"
 import { useEffect } from "react"
 import { delAllUserBasket } from "../../../Redux/User/userSlice"
 import { useConfirmOrderMutation } from "../../../Redux/Order/OrderAPI"
+import { BlockForm, Input } from "../../../shared/ui"
 
 export const BasketForm = ({onSubmitRef}) => {
 
@@ -52,11 +53,10 @@ export const BasketForm = ({onSubmitRef}) => {
             <form onSubmit={handleSubmit(onSubmit)}>
             <button onClick={onSubmit}></button>
             <div className="basket-form payment-form">
-                
                 <h2 className="basket-form__title">Способ получения</h2>
                     <div className="payment-form__location">   
                         <div>
-                            <label className="payment-form__label">
+                            {/* <label className="payment-form__label">
                                 <p className="payment-form__label__title">Ваш город</p>
                                 <input 
                                     autoComplete="none" 
@@ -72,7 +72,18 @@ export const BasketForm = ({onSubmitRef}) => {
                                     })}
                                     />
                                     <div>{errors?.city && <p>{errors.city.message}</p>}</div>
-                            </label>
+                            </label> */}
+                            <Input 
+                                name={'city'} 
+                                label={'Город'} 
+                                errors={errors}
+                                className={'payment-form__input'}
+                                {...register("city", {
+                                    required: "Поле обязательно для заполнения",
+                                    value: city,
+                                    onChange: (e) => dispatch(setOrderOptionValue({name: e.target.name, value : e.target.value})),
+                                })}
+                            />
                         </div>
                         <div>
                             <div className={deliveryMethod == 'Доставка' ? 'payment-form__input-block-redio active' : 'payment-form__input-block-redio'}>

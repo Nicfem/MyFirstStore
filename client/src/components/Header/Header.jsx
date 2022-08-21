@@ -22,7 +22,7 @@ const Header = () => {
     const User = useSelector(selectUser)
     const [activeBasket, setActiveBasket] = useState(false)
     const [activeAuth, setActiveAuth] = useState(false)
-
+    console.log('renderHeader')
     return (
         <>
             <header className="header">

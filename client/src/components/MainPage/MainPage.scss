@@ -6,9 +6,11 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    margin-top: 25px;
 }
 
+.main-pg-content {
+    margin-bottom: 25px
+}
 
 .cardMain {
     @include goodCart.cardGood(25%);
