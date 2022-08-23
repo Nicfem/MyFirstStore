@@ -18,6 +18,7 @@ class orderController {
         console.log(id)
         try {
             const data = await Order.findById(id)
+            .populate({ path: 'goods', select: '-descriptions -type -brand' })
             res.send(data)
         } catch(e) {
             next(e)
@@ -50,7 +51,9 @@ class orderController {
         const {id} = req.params
         console.log(typeof id)
         try {
-            const orders = await Order.find({userId: id}).sort({$natural: -1})
+            const orders = await Order.find({userId: id})
+            .populate({ path: 'goods', select: '-descriptions -type -brand' })
+            .sort({$natural: -1})
 
             res.send(orders)
         } catch(e) {

@@ -8,7 +8,7 @@ class authController {
             const errors = validationResult(req)
             const isEmptyemail = req.body.email
             if(!isEmptyemail.includes('@gmail.com')) {
-                return next(ApiError.BadRequest('Електронная почта не указана'))
+                return next(ApiError.BadRequest('Електронная почта указана не верно'))
             }
             
             if(!errors.isEmpty()) {

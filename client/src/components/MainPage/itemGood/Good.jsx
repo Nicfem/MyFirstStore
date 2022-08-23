@@ -5,19 +5,15 @@ import { Link } from "react-router-dom"
 import { addUserBasket, delUserBasket } from "../../../Redux/User/userSlice"
 import { useAddFavoriteGoodMutation, useAddToBasketMutation, useDelBasketMutation, useDelFavoriteGoodMutation } from "../../../Redux/User/userAPI"
 import { selectUser } from "../../../selectors/selectors"
-import { Loader } from "../../Loader"
 
 
 const serv = 'http://localhost:5000/'
 
 export const Good = memo(({good, className}) => {
-    console.log('render')
+
     const dispatch = useDispatch()
-
     const { basket, favoritesGoods } = useSelector(selectUser)
-    
     const isAuth = useSelector(state => state.user.isAuth)  
-
     const [Like, {isLoading}] = useAddFavoriteGoodMutation()             
     const [NoLike, {isLoading : LoadingUnLike}] = useDelFavoriteGoodMutation() 
     const [addBasket, {isLoading : LoadingAddBasket}] = useAddToBasketMutation()
@@ -25,11 +21,8 @@ export const Good = memo(({good, className}) => {
 
     const [isFav, setIsFav] = useState(false)
     const [inBas, setInBas] = useState(false)
-    
-    
 
     useEffect(() => {
-        
         if(favoritesGoods?.includes(good._id) != isFav && favoritesGoods?.includes(good._id) !=  undefined) {
             setIsFav(favoritesGoods?.includes(good._id))
         }
@@ -37,7 +30,6 @@ export const Good = memo(({good, className}) => {
             setInBas(basket?.includes(good._id))
         }
     },[basket, favoritesGoods, good])
-
 
     const Pryce = (number) => {
         return number.toLocaleString("ua") 
@@ -88,6 +80,7 @@ export const Good = memo(({good, className}) => {
                                 </button>
                             }
                         </div>
+
                         :
 
                         basket.includes(good._id) ?

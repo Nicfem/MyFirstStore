@@ -19,7 +19,7 @@ class MailService {
             from: 'sosiska2004dota2@gmail.com',
             to,
             subject: 'Привет',
-            text: 'Привет Дядя Вадим',
+            text: 'Привет, подтвердите почту',
             html: 
             `
                 <div>

@@ -2,14 +2,14 @@ const { ObjectId } = require('mongodb')
 const {Schema, model} = require('mongoose')
 
 
-const goods = new Schema ({
-    _id: {type: String, required : true},
-    quantity: {type: String, required : true},
-    type : {type : String, required : true},
-    device: {type: String, required : true},
-    img: {type: String, required : true},
-    price : {type : Number, required : true}
-})
+// const goods = new Schema ({
+//     _id: {type: String, required : true},
+//     quantity: {type: String, required : true},
+//     type : {type : String, required : true},
+//     device: {type: String, required : true},
+//     img: {type: String, required : true},
+//     price : {type : Number, required : true}
+// })
 
 
 const order = new Schema({
@@ -25,7 +25,8 @@ const order = new Schema({
     serviced : {type: Boolean, default : false},
     phone : {type : String, required: true},
     goods : [
-        goods
+        // goods
+        {type: Schema.Types.ObjectId, ref : 'Product'}
     ],
 })
 

@@ -47,13 +47,9 @@ class UserService {
         if(!isPassEquals) {
             throw ApiError.BadRequest('Неверный пароль')
         }
-
         const userDto = new UserDto(user)
-
         const tokens = tokenService.generateToken({...userDto})
         await tokenService.saveToken(userDto.id, tokens.refreshToken)
-        
-        // было return {...tokens, user: userDto, ok : true}
         return {...tokens, user}
     }
 
@@ -72,11 +68,9 @@ class UserService {
             throw ApiError.UnavthovrizedError()
         }
         const user = await UserModel.findById(userData.id)
-        //Dto
         const userDto = new UserDto(user)
         const tokens = tokenService.generateToken({...userDto})
         await tokenService.saveToken(userDto.id, tokens.refreshToken)
-        // было return {...tokens, user : userDto}
         return {...tokens, user}
     }
 
